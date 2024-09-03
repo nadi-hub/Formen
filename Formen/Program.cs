@@ -6,12 +6,26 @@
         {
             Formenbehaelter formenbehaelter = new Formenbehaelter();
 
-            // Beispiel für die Verwendung der Klassen
-            double rechteckUmfang = formenbehaelter.Rechtecke[0].BerechneUmfang();
-            double rechteckFlaeche = formenbehaelter.Rechtecke[0].BerechneFlaeche();
+            // Instanzieren von zwei Rechtecken
+            Rechteck rechteck1 = new Rechteck();
+            Rechteck rechteck2 = new Rechteck();
 
-            System.Console.WriteLine($"Umfang des ersten Rechtecks: {rechteckUmfang}");
-            System.Console.WriteLine($"Fläche des ersten Rechtecks: {rechteckFlaeche}");
+            // Instanzieren eines Dreiecks
+            Dreieck dreieck = new Dreieck();
+
+            // Instanzieren von zwei Kreisen
+            Kreis kreis1 = new Kreis();
+            Kreis kreis2 = new Kreis();
+
+            // Hinzufügen der Formen zum Formenbehälter
+            formenbehaelter.FuegeRechteckHinzu(rechteck1);
+            formenbehaelter.FuegeRechteckHinzu(rechteck2);
+            formenbehaelter.FuegeDreieckHinzu(dreieck);
+            formenbehaelter.FuegeKreisHinzu(kreis1);
+            formenbehaelter.FuegeKreisHinzu(kreis2);
+
+            // Beispielhafte Ausgabe
+            System.Console.WriteLine("Formenbehälter erfolgreich instanziert und gefüllt.");
         }
     }
 
