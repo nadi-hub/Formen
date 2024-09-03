@@ -6,9 +6,5 @@ using System.Threading.Tasks;
 
 namespace Formen
 {
-    internal class Form
-    {
-        public abstract double BerechneUmfang();
-        public abstract double BerechneFlaeche();
-    }
+    
 }

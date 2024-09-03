@@ -8,52 +8,28 @@ namespace Formen
 {
     public class Formenbehaelter
     {
-        public List<Rechteck> Rechtecke { get; set; } = new List<Rechteck>();
-        public List<Dreieck> Dreiecke { get; set; } = new List<Dreieck>();
-        public List<Kreis> Kreise { get; set; } = new List<Kreis>();
+        private Dreieck[] dreiecke;
+        private Kreis[] kreise;
+        private Rechteck[] rechtecke;
 
-        public void AddiereForme(Form form)
+        public Formenbehaelter()
         {
-            if (form is Rechteck rechteck)
-            {
-                if (Rechtecke.Count < 2)
-                    Rechtecke.Add(rechteck);
-            }
-            else if (form is Dreieck dreieck)
-            {
-                if (Dreiecke.Count < 4)
-                    Dreiecke.Add(dreieck);
-            }
-            else if (form is Kreis kreis)
-            {
-                if (Kreise.Count < 3)
-                    Kreise.Add(kreis);
-            }
+            dreiecke = new Dreieck[4]; // Maximal 4 Dreiecke
+            kreise = new Kreis[3]; // 1 bis 3 Kreise
+            rechtecke = new Rechteck[2]; // Genau 2 Rechtecke
+
+            // Beispiel: Initialisierung der Formen
+            rechtecke[0] = new Rechteck();
+            rechtecke[1] = new Rechteck();
+
+            // Optional: Initialisierung von Kreisen und Dreiecken
+        }
+        public Rechteck[] Rechtecke
+        {
+            get { return rechtecke; }
         }
 
-        public void EntferneForme(Form form)
-        {
-            if (form is Rechteck rechteck)
-            {
-                Rechtecke.Remove(rechteck);
-            }
-            else if (form is Dreieck dreieck)
-            {
-                Dreiecke.Remove(dreieck);
-            }
-            else if (form is Kreis kreis)
-            {
-                Kreise.Remove(kreis);
-            }
-        }
 
-        public List<Form> GetFormen()
-        {
-            List<Form> formen = new List<Form>();
-            formen.AddRange(Rechtecke);
-            formen.AddRange(Dreiecke);
-            formen.AddRange(Kreise);
-            return formen;
-        }
     }
+
 }

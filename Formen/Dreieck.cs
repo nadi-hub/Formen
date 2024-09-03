@@ -6,28 +6,46 @@ using System.Threading.Tasks;
 
 namespace Formen
 {
-    public class Dreieck : Form
+    public class Dreieck
     {
-        public Linie Linie1 { get; set; }
-        public Linie Linie2 { get; set; }
-        public Linie Linie3 { get; set; }
+        private Linie[] linien = new Linie[3];
 
-        public Dreieck(Linie linie1, Linie linie2, Linie linie3)
+        public Dreieck()
         {
-            Linie1 = linie1;
-            Linie2 = linie2;
-            Linie3 = linie3;
+            // Initialisierung der 3 Linien
+            for (int i = 0; i < 3; i++)
+            {
+                linien[i] = new Linie();
+            }
         }
 
-        public override double BerechneUmfang()
+        public double BerechneUmfang()
         {
-            return Linie1.Laenge + Linie2.Laenge + Linie3.Laenge;
+            // Beispielhafte Berechnung des Umfangs
+            return GetSeitenlaengeA() + GetSeitenlaengeB() + GetSeitenlaengeC();
         }
 
-        public override double BerechneFlaeche()
+        public double BerechneFlaeche()
         {
+            // Beispielhafte Berechnung der Fläche mit Heron's Formel
             double s = BerechneUmfang() / 2;
-            return Math.Sqrt(s * (s - Linie1.Laenge) * (s - Linie2.Laenge) * (s - Linie3.Laenge));
+            return Math.Sqrt(s * (s - GetSeitenlaengeA()) * (s - GetSeitenlaengeB()) * (s - GetSeitenlaengeC()));
+        }
+
+        private double GetSeitenlaengeA()
+        {
+            return 5.0; // Beispielwert
+        }
+
+        private double GetSeitenlaengeB()
+        {
+            return 6.0; // Beispielwert
+        }
+
+        private double GetSeitenlaengeC()
+        {
+            return 7.0; // Beispielwert
         }
     }
+
 }

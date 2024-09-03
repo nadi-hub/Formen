@@ -6,25 +6,42 @@ using System.Threading.Tasks;
 
 namespace Formen
 {
-    public class Rechteck : Form
+    public class Rechteck
     {
-        public Linie Linie1 { get; set; }
-        public Linie Linie2 { get; set; }
+        private Linie[] linien = new Linie[4];
 
-        public Rechteck(Linie linie1, Linie linie2)
+        public Rechteck()
         {
-            Linie1 = linie1;
-            Linie2 = linie2;
+            // Initialisierung der 4 Linien
+            for (int i = 0; i < 4; i++)
+            {
+                linien[i] = new Linie();
+            }
         }
 
-        public override double BerechneUmfang()
+        public double BerechneUmfang()
         {
-            return 2 * (Linie1.Laenge + Linie2.Laenge);
+            // Beispielhafte Berechnung des Umfangs
+            return 2 * (GetSeitenlaengeA() + GetSeitenlaengeB());
         }
 
-        public override double BerechneFlaeche()
+        public double BerechneFlaeche()
         {
-            return Linie1.Laenge * Linie2.Laenge;
+            // Beispielhafte Berechnung der Fläche
+            return GetSeitenlaengeA() * GetSeitenlaengeB();
+        }
+
+        private double GetSeitenlaengeA()
+        {
+            // Berechnung der Länge der ersten Seite
+            return 5.0; // Beispielwert
+        }
+
+        private double GetSeitenlaengeB()
+        {
+            // Berechnung der Länge der zweiten Seite
+            return 10.0; // Beispielwert
         }
     }
+
 }

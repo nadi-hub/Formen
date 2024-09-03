@@ -6,13 +6,9 @@ using System.Threading.Tasks;
 
 namespace Formen
 {
-    internal class Linie
+    public class Linie
     {
-        public double Laenge { get; set; }
-
-        public Linie(double laenge)
-        {
-            Laenge = laenge;
-        }
+        // Linie kann eigene Eigenschaften und Methoden haben, falls nötig.
     }
+
 }

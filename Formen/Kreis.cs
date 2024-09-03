@@ -6,23 +6,31 @@ using System.Threading.Tasks;
 
 namespace Formen
 {
-    public class Kreis : Form
+    public class Kreis
     {
-        public double Radius { get; set; }
+        private Linie linie;
 
-        public Kreis(double radius)
+        public Kreis()
         {
-            Radius = radius;
+            linie = new Linie();
         }
 
-        public override double BerechneUmfang()
+        public double BerechneUmfang()
         {
-            return 2 * Math.PI * Radius;
+            double radius = GetRadius();
+            return 2 * Math.PI * radius;
         }
 
-        public override double BerechneFlaeche()
+        public double BerechneFlaeche()
         {
-            return Math.PI * Radius * Radius;
+            double radius = GetRadius();
+            return Math.PI * radius * radius;
+        }
+
+        private double GetRadius()
+        {
+            return 5.0; // Beispielwert
         }
     }
+
 }
