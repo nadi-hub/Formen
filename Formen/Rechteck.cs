@@ -8,7 +8,6 @@ namespace Formen
 {
     public class Rechteck
     {
-        // Rechteck hat vier Linien
         private List<Linie> linien;
 
         public Rechteck()

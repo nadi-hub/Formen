@@ -18,7 +18,10 @@ namespace Formen
             kreise = new List<Kreis>();
             rechtecke = new List<Rechteck>();
         }
-
+        /// <summary>
+        /// Fügt eine Form (Dreieck, Kreis oder Rechteck) hinzu, wenn die maximale Anzahl für diese Form nicht erreicht ist.
+        /// </summary>
+        /// <param name="form"></param>
         public void AddiereFormen(object form)
         {
             if (form is Dreieck && dreiecke.Count < 4)
@@ -38,7 +41,10 @@ namespace Formen
                 Console.WriteLine("Maximale Anzahl dieser Form erreicht.");
             }
         }
-
+        /// <summary>
+        /// Entfernt eine Form (Dreieck, Kreis oder Rechteck), falls sie in der Liste enthalten ist.
+        /// </summary>
+        /// <param name="form"></param>
         public void EntferneFormen(object form)
         {
             if (form is Dreieck && dreiecke.Contains((Dreieck)form))
@@ -54,7 +60,7 @@ namespace Formen
                 rechtecke.Remove((Rechteck)form);
             }
         }
-
+        
         public List<object> ErhalteFormen()
         {
             List<object> formen = new List<object>();
