@@ -8,9 +8,9 @@ namespace Formen
 {
     public class Formenbehaelter
     {
-        private List<Dreieck> dreiecke;
-        private List<Kreis> kreise;
-        private List<Rechteck> rechtecke;
+        public List<Dreieck> dreiecke;
+        public List<Kreis> kreise;
+        public List<Rechteck> rechtecke;
 
         public Formenbehaelter()
         {
