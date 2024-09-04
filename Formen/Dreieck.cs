@@ -8,44 +8,28 @@ namespace Formen
 {
     public class Dreieck
     {
-        private Linie[] linien = new Linie[3];
+        private List<Linie> linien;
 
         public Dreieck()
         {
-            // Initialisierung der 3 Linien
-            for (int i = 0; i < 3; i++)
-            {
-                linien[i] = new Linie();
-            }
+            linien = new List<Linie>
+        {
+            new Linie(),
+            new Linie(),
+            new Linie()
+        };
         }
 
         public double BerechneUmfang()
         {
-            // Beispielhafte Berechnung des Umfangs
-            return GetSeitenlaengeA() + GetSeitenlaengeB() + GetSeitenlaengeC();
+            return 3 * 5; 
         }
 
         public double BerechneFlaeche()
         {
-            // Beispielhafte Berechnung der Fläche mit Heron's Formel
-            double s = BerechneUmfang() / 2;
-            return Math.Sqrt(s * (s - GetSeitenlaengeA()) * (s - GetSeitenlaengeB()) * (s - GetSeitenlaengeC()));
-        }
-
-        private double GetSeitenlaengeA()
-        {
-            return 5.0; // Beispielwert
-        }
-
-        private double GetSeitenlaengeB()
-        {
-            return 6.0; // Beispielwert
-        }
-
-        private double GetSeitenlaengeC()
-        {
-            return 7.0; // Beispielwert
+            return (double)(0.5 * 5 * 4);
         }
     }
+
 
 }

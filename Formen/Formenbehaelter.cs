@@ -8,66 +8,60 @@ namespace Formen
 {
     public class Formenbehaelter
     {
-        private Dreieck[] dreiecke;
-        private Kreis[] kreise;
-        private Rechteck[] rechtecke;
+        private List<Dreieck> dreiecke;
+        private List<Kreis> kreise;
+        private List<Rechteck> rechtecke;
 
         public Formenbehaelter()
         {
-            dreiecke = new Dreieck[4]; // Maximal 4 Dreiecke
-            kreise = new Kreis[3]; // 1 bis 3 Kreise
-            rechtecke = new Rechteck[2]; // Genau 2 Rechtecke
+            dreiecke = new List<Dreieck>();
+            kreise = new List<Kreis>();
+            rechtecke = new List<Rechteck>();
         }
 
-        public Dreieck[] Dreiecke
+        public void AddiereFormen(object form)
         {
-            get { return dreiecke; }
-        }
-
-        public Kreis[] Kreise
-        {
-            get { return kreise; }
-        }
-
-        public Rechteck[] Rechtecke
-        {
-            get { return rechtecke; }
-        }
-
-        public void FuegeDreieckHinzu(Dreieck dreieck)
-        {
-            for (int i = 0; i < dreiecke.Length; i++)
+            if (form is Dreieck && dreiecke.Count < 4)
             {
-                if (dreiecke[i] == null)
-                {
-                    dreiecke[i] = dreieck;
-                    break;
-                }
+                dreiecke.Add((Dreieck)form);
+            }
+            else if (form is Kreis && kreise.Count < 3)
+            {
+                kreise.Add((Kreis)form);
+            }
+            else if (form is Rechteck && rechtecke.Count < 2)
+            {
+                rechtecke.Add((Rechteck)form);
+            }
+            else
+            {
+                Console.WriteLine("Maximale Anzahl dieser Form erreicht.");
             }
         }
 
-        public void FuegeKreisHinzu(Kreis kreis)
+        public void EntferneFormen(object form)
         {
-            for (int i = 0; i < kreise.Length; i++)
+            if (form is Dreieck && dreiecke.Contains((Dreieck)form))
             {
-                if (kreise[i] == null)
-                {
-                    kreise[i] = kreis;
-                    break;
-                }
+                dreiecke.Remove((Dreieck)form);
+            }
+            else if (form is Kreis && kreise.Contains((Kreis)form))
+            {
+                kreise.Remove((Kreis)form);
+            }
+            else if (form is Rechteck && rechtecke.Contains((Rechteck)form))
+            {
+                rechtecke.Remove((Rechteck)form);
             }
         }
 
-        public void FuegeRechteckHinzu(Rechteck rechteck)
+        public List<object> ErhalteFormen()
         {
-            for (int i = 0; i < rechtecke.Length; i++)
-            {
-                if (rechtecke[i] == null)
-                {
-                    rechtecke[i] = rechteck;
-                    break;
-                }
-            }
+            List<object> formen = new List<object>();
+            formen.AddRange(dreiecke);
+            formen.AddRange(kreise);
+            formen.AddRange(rechtecke);
+            return formen;
         }
     }
 

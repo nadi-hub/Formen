@@ -8,7 +8,12 @@ namespace Formen
 {
     public class Linie
     {
-        // Linie kann eigene Eigenschaften und Methoden haben, falls nötig.
+        public bool ExistiertUnabhaengig { get; set; }
+
+        public Linie()
+        {
+            ExistiertUnabhaengig = true; 
+        }
     }
 
 }

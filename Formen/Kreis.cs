@@ -17,19 +17,12 @@ namespace Formen
 
         public double BerechneUmfang()
         {
-            double radius = GetRadius();
-            return 2 * Math.PI * radius;
+            return 2 * (double)Math.PI * 5;
         }
 
         public double BerechneFlaeche()
         {
-            double radius = GetRadius();
-            return Math.PI * radius * radius;
-        }
-
-        private double GetRadius()
-        {
-            return 5.0; // Beispielwert
+            return (double)Math.PI * 5 * 5;
         }
     }
 
